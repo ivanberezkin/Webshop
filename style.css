@@ -29,11 +29,15 @@
 }
 
 .product-price {
-  margin-top: auto;
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+  font-weight: bold;
 }
 
-.add-to-cart {
+.product-footer {
   margin-top: auto;
+  padding-top: 10px;
+  border-top: 1px solid #eee;
 }
 
 .product-title {

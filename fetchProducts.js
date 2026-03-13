@@ -12,9 +12,11 @@ fetch("https://fakestoreapi.com/products")
           <div class="product-info">
             <h2 class="product-title">${product.title}</h2>
             <p class="product-description">${product.description}</p>
-            <p class="product-price">$${product.price}</p>
-            <button class="add-to-cart">Add to Cart</button>
-        </div>
+            <div class="product-footer">
+              <p class="product-price">$${product.price}</p>
+              <button class="add-to-cart">Add to Cart</button>
+            </div>
+          </div>
         </div>`;
 
       container.innerHTML += productCard;
