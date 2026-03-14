@@ -34,6 +34,12 @@ container.addEventListener("click", (event) => {
       (product) => product.id === parseInt(productId),
     );
     userAddedProducts.push(addedProduct);
+    updateCartIcon();
     console.log("Added to cart:", addedProduct.title);
   }
 });
+
+function updateCartIcon() {
+  const cartCount = document.querySelector("#cart-count");
+  cartCount.textContent = userAddedProducts.length;
+}
