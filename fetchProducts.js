@@ -43,3 +43,23 @@ function updateCartIcon() {
   const cartCount = document.querySelector("#cart-count");
   cartCount.textContent = userAddedProducts.length;
 }
+
+const cartContainer = document.querySelector("#cart-container");
+function getCartProducts() {
+  cartContainer.innerHTML = "";
+  userAddedProducts.forEach((product) => {
+    const productCard = `<div class="col-12 col-sm-6 col-lg-4 col-xl-3 mb-1">
+      <div class="product-card shadow-sm">
+        <img src="${product.image}" alt="${product.title}" class="product-image">
+        <div class="product-info">
+          <h2 class="product-title">${product.title}</h2>
+          <p class="product-description">${product.description}</p>
+          <div class="product-footer">
+            <p class="product-price">$${product.price}</p>
+          </div>
+        </div>
+      </div>
+    </div>`;
+    cartContainer.innerHTML += productCard;
+  });
+}
