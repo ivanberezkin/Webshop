@@ -1,3 +1,5 @@
+import { updateCartIcon } from "./utils.js";
+
 const container = document.querySelector("#product-container");
 let allProducts = [];
 let userAddedProducts = JSON.parse(localStorage.getItem("cart")) || [];
@@ -21,7 +23,7 @@ fetch("https://fakestoreapi.com/products")
             </div>
           </div>
         </div>`;
-      updateCartIcon();
+      updateCartIcon(userAddedProducts);
       container.innerHTML += productCard;
     });
   })
@@ -49,21 +51,9 @@ container.addEventListener("click", (event) => {
   }
   
     localStorage.setItem("cart", JSON.stringify(userAddedProducts));
-    updateCartIcon();
+    updateCartIcon(userAddedProducts);
     
   }
 });
 
-function updateCartIcon() {
-  const cartCount = document.querySelector("#cart-count");
-  let sumOfQuantities = 0;
-  userAddedProducts.forEach((product) => {
-    if(product.quantity != null) {
-      sumOfQuantities += product.quantity;
-    }
-  });
-  if (sumOfQuantities < 1) {
-    sumOfQuantities = 0;
-  }
-  cartCount.textContent = sumOfQuantities;
-}
+

@@ -1,3 +1,5 @@
+import { updateCartIcon } from "./utils.js";
+
 const userAddedProducts = JSON.parse(localStorage.getItem("cart")) || [];
 const cartContainer = document.querySelector("#cart-container");
 
@@ -25,12 +27,7 @@ function getCartProducts() {
     </div>`;
     cartContainer.innerHTML += productCard;
   });
-  updateCartIconInCart();
-}
-
-function updateCartIconInCart() {
-  const cartCountElement = document.querySelector("#cart-count");
-  cartCountElement.textContent = userAddedProducts.length;
+  updateCartIcon(userAddedProducts);
 }
 
 getCartProducts();
