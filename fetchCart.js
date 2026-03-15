@@ -5,7 +5,7 @@ function getCartProducts() {
   if (userAddedProducts.length === 0) {
     cartContainer.innerHTML = `<div class="col-12">
             <p class="text-center">Your cart is empty.</p>
-    div>`;
+          </div>`;
     return;
   }
 

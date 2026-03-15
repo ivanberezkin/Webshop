@@ -30,17 +30,40 @@ fetch("https://fakestoreapi.com/products")
 container.addEventListener("click", (event) => {
   if (event.target.matches("#add-to-cart")) {
     const productId = event.target.getAttribute("data-id");
-    const addedProduct = allProducts.find(
+    
+    const productAlreadyInCart = userAddedProducts.find(
       (product) => product.id === parseInt(productId),
     );
-    userAddedProducts.push(addedProduct);
+    
+    if(productAlreadyInCart){
+      productAlreadyInCart.quantity += 1;
+      console.log("Increased quantity of:", productAlreadyInCart.title, "to", productAlreadyInCart.quantity);
+    } else{
+    const newProductToAddToCart = allProducts.find(
+      (product) => product.id === parseInt(productId),
+      
+    );
+    newProductToAddToCart.quantity = 1;
+    userAddedProducts.push(newProductToAddToCart);
+    console.log("Added to cart:", newProductToAddToCart.title);
+  }
+  
     localStorage.setItem("cart", JSON.stringify(userAddedProducts));
     updateCartIcon();
-    console.log("Added to cart:", addedProduct.title);
+    
   }
 });
 
 function updateCartIcon() {
   const cartCount = document.querySelector("#cart-count");
-  cartCount.textContent = userAddedProducts.length;
+  let sumOfQuantities = 0;
+  userAddedProducts.forEach((product) => {
+    if(product.quantity != null) {
+      sumOfQuantities += product.quantity;
+    }
+  });
+  if (sumOfQuantities < 1) {
+    sumOfQuantities = 0;
+  }
+  cartCount.textContent = sumOfQuantities;
 }
