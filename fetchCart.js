@@ -20,13 +20,22 @@ function getCartProducts() {
           <div class="col-3 col-md-2 text-center flex-shrink-0 cart-product-image" >
             <img src="${product.image}" alt="${product.title}" class="img-fluid rounded" >
           </div>
-          <div class="col-5 col-md-6">
+          <div class="col-5 col-md-8">
             <h2 class="product-title">${product.title}</h2>
             <p class="product-description text-muted mb-0 d-none d-md-block">${product.description}</p>
             <p class="product-price ms-left-auto">Piece: $${product.price}</p>
-
+ 
+          <div class="col-md-2">
+            <div class="input-group input-group-sm">
+              <button class="btn btn-outline-secondary" type="button">-</button>
+              <input type="text" class="form-control text-center" value="${product.quantity}" readonly>
+              <button class="btn btn-outline-secondary" type="button">+</button>
+            </div>
+            </div> 
           </div>
-        </div>
+        <div class="col-md-2 text-end pe-5">
+        <p class="product-price mb-0">Total: $${(product.price * product.quantity).toFixed(2)}</p>
+        <button class="btn btn-sm btn-danger mt-2">Remove</button>
       </div>
     </div>
     `;
