@@ -9,6 +9,11 @@
   --bs-gutter-y: 1.5rem;
 }
 
+.card order-summary-card {
+  height: 100%;
+  width: 100%;
+}
+
 .product-card {
   display: flex;
   flex-direction: column;
@@ -50,7 +55,7 @@
 
 .product-price {
   margin-bottom: 8px;
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: bold;
 }
 
