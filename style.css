@@ -4,15 +4,16 @@
   margin-bottom: 10px;
 }
 
-.product-card {
-  background: #fff;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  height: 550px;
-  display: flex;
-  flex-direction: column;
-  padding: 15px;
-  margin-bottom: 0px;
+.cart-product-image {
+  width: 60px;
+  flex-shrink: 0;
+}
+
+.cart-product-image img {
+  height: 100px;
+  width: 100px;
+  object-fit: contain;
+  margin: 0;
 }
 
 .product-info {
@@ -23,21 +24,14 @@
 }
 
 .product-description {
-  overflow-y: auto;
-  margin-bottom: 10px;
-  font-size: 0.9rem;
+  font-size: 0.75rem;
+  line-height: 1.2;
 }
 
 .product-price {
   margin-bottom: 8px;
   font-size: 0.9rem;
   font-weight: bold;
-}
-
-.product-footer {
-  margin-top: auto;
-  padding-top: 10px;
-  border-top: 1px solid #eee;
 }
 
 .product-title {

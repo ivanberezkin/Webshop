@@ -13,24 +13,23 @@ function getCartProducts() {
 
   cartContainer.innerHTML = "";
   userAddedProducts.forEach((product) => {
-    const productCard = `<div class="col-12 col-sm-6 col-lg-4 col-xl-3 mb-1">
-      <div class="product-card shadow-sm">
-        <img src="${product.image}" alt="${product.title}" class="product-image">
-        <div class="product-info">
-          <h2 class="product-title">${product.title}</h2>
-          <p class="product-description">${product.description}</p>
-          <div class="product-footer ms-left-auto d-flex align-items-center">
-            <p class="product-price ms-left-auto">Piece: $${product.price}</p>
-            <p class="product-price ms-auto">Sum: $${(product.price * product.quantity).toFixed(2)}</p>
+    const productCard = `
+    <div class="col-12 mb-2">
+      <div class="product-card shadow-sm border rounder p-2">
+        <div class="row align-items-center g-2">
+          <div class="col-3 col-md-2 text-center flex-shrink-0 cart-product-image" >
+            <img src="${product.image}" alt="${product.title}" class="img-fluid rounded" >
           </div>
-          <div class="quantity-controls ms-auto mt-2">
-            <button class="btn btn-sm btn-outline-secondary" onclick="changeQty('${product.id}', -1)">-</button>
-            <span class="mx-3 fw-bold">${product.quantity}</span>
-            <button class="btn btn-sm btn-outline-secondary" onclick="changeQty('${product.id}', 1)">+</button>
+          <div class="col-5 col-md-6">
+            <h2 class="product-title">${product.title}</h2>
+            <p class="product-description text-muted mb-0 d-none d-md-block">${product.description}</p>
+            <p class="product-price ms-left-auto">Piece: $${product.price}</p>
+
           </div>
         </div>
       </div>
-    </div>`;
+    </div>
+    `;
     cartContainer.innerHTML += productCard;
   });
   updateCartIcon(userAddedProducts);
