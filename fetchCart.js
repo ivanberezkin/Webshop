@@ -14,7 +14,7 @@ function getCartProducts() {
   cartContainer.innerHTML = "";
   userAddedProducts.forEach((product) => {
     const productCard = `
-    <div class="col-12 mb-2">
+    <div class="col-10 mb-2">
       <div class="cart-product-card shadow-sm border rounder p-2">
         <div class="row align-items-center g-2">
           <div class="col-3 col-md-2 text-center flex-shrink-0 cart-product-image" >
