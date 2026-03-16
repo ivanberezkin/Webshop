@@ -1,6 +1,6 @@
 import { updateCartIcon } from "./utils.js";
 
-const userAddedProducts = JSON.parse(localStorage.getItem("cart")) || [];
+let userAddedProducts = JSON.parse(localStorage.getItem("cart")) || [];
 const cartContainer = document.querySelector("#cart-container");
 
 const checkOutButton = document.querySelector("#checkout-button");
@@ -36,15 +36,15 @@ function getCartProducts() {
  
           <div class="col-md-2">
             <div class="input-group input-group-sm">
-              <button class="btn btn-outline-secondary" type="button">-</button>
+              <button data-id="${product.id}" class="btn btn-outline-secondary decreaseByOneBtn" type="button">-</button>
               <input type="text" class="form-control text-center" value="${product.quantity}" readonly>
-              <button class="btn btn-outline-secondary" type="button">+</button>
+              <button data-id="${product.id}" class="btn btn-outline-secondary increaseByOneBtn" type="button">+</button>
             </div>
             </div> 
           </div>
         <div class="col-md-2 text-end pe-5">
         <p class="product-price mb-0">Total: $${(product.price * product.quantity).toFixed(2)}</p>
-        <button class="btn btn-sm btn-danger mt-2">Remove</button>
+        <button data-id="${product.id}" class="btn btn-sm btn-danger mt-2 removeAll-btn">Remove</button>
       </div>
     </div>
     `;
@@ -61,6 +61,36 @@ function updateCartSummary(){
   totalItemsNumber.textContent = getCartTotalItems();
   totalPricesNumber.textContent = `$${getCartTotalPrice().toFixed(2)}`;
 
+}
+
+cartContainer.addEventListener("click", (event) => {
+  if (event.target.classList.contains("removeAll-btn")) {
+    const productIdToRemove = parseInt(event.target.getAttribute("data-id"));
+    userAddedProducts = userAddedProducts.filter((product) => product.id !== productIdToRemove);
+   saveAndUpdateCart();
+  }
+ else if (event.target.classList.contains("decreaseByOneBtn")) {
+  const productIdToDecrease = parseInt(event.target.getAttribute("data-id"));
+  const productToDecrease = userAddedProducts.find((product) => product.id === productIdToDecrease);
+  productToDecrease.quantity -= 1;
+  if(productToDecrease.quantity < 1){
+    userAddedProducts = userAddedProducts.filter((product) => product.id !== productToDecrease.id);
+  } 
+  saveAndUpdateCart();
+  
+} else if (event.target.classList.contains("increaseByOneBtn")) {
+  const productIdToIncrease = parseInt(event.target.getAttribute("data-id"));
+  const productToIncrease = userAddedProducts.find((product) => product.id === productIdToIncrease);
+  productToIncrease.quantity += 1;
+ saveAndUpdateCart();
+}
+});
+
+function saveAndUpdateCart(){
+  localStorage.setItem("cart", JSON.stringify(userAddedProducts));
+  getCartProducts();
+  updateCartSummary();
+  updateCartIcon(userAddedProducts);  
 }
 
 function getCartTotalPrice(){
