@@ -42,7 +42,12 @@
               id="email"
               placeholder="Email"
               required
+              maxlength="50"
             />
+            <div class="valid-feedback">Ok!</div>
+            <div class="invalid-feedback">
+              Please enter a valid email address.
+            </div>
           </div>
           <div class="form-group">
             <label for="phone">Phone Number</label>
@@ -52,17 +57,56 @@
               id="phone"
               placeholder="Phone number"
               required
+              pattern="^[0-9\-\(\)]+$"
+              maxlength="20"
             />
+            <div class="valid-feedback">Ok!</div>
+            <div class="invalid-feedback">
+              Please enter a valid phone number.
+            </div>
           </div>
           <div class="form-group">
-            <label for="deliveryAddress">Delivery Address</label>
+            <label for="Address"> Address</label>
             <input
               type="text"
               class="form-control"
-              id="deliveryAddress"
-              placeholder="Delivery address"
+              id="Address"
+              placeholder="Address"
               required
+              minlength="2"
+              maxlength="50"
             />
+            <div class="valid-feedback">Ok!</div>
+            <div class="invalid-feedback">
+              Please enter a valid address (2-50 characters).
+            </div>
+            <label for="City">City</label>
+            <input
+              type="text"
+              class="form-control"
+              id="city"
+              placeholder="City"
+              required
+              minlength="2"
+              maxlength="50"
+            />
+            <div class="valid-feedback">Ok!</div>
+            <div class="invalid-feedback">
+              Please enter a valid city (2-50 characters).
+            </div>
+            <label for="postalCode">Postal Code</label>
+            <input
+              type="text"
+              class="form-control"
+              id="postalCode"
+              placeholder="Postal code"
+              required
+              pattern="^[0-9]{5}$"
+            />
+            <div class="valid-feedback">Ok!</div>
+            <div class="invalid-feedback">
+              Please enter a valid postal code (5 digits).
+            </div>
           </div>
           <button type="submit" class="btn btn-primary mt-3">Submit</button>
         </form>
