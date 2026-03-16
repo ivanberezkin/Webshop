@@ -1,4 +1,4 @@
-import { updateCartIcon } from "./utils.js";
+import { updateCartIcon } from "/Javascript/utils.js";
 
 const container = document.querySelector("#product-container");
 let allProducts = [];

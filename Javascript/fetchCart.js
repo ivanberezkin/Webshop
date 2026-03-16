@@ -1,4 +1,4 @@
-import { updateCartIcon } from "./utils.js";
+import { updateCartIcon } from "/Javascript/utils.js";
 
 let userAddedProducts = JSON.parse(localStorage.getItem("cart")) || [];
 const cartContainer = document.querySelector("#cart-container");
