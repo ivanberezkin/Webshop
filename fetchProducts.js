@@ -11,16 +11,16 @@ fetch("https://fakestoreapi.com/products")
     allProducts = products;
 
     products.forEach((product) => {
-      const productCard = `<div class="col-12 col-sm-6 col-lg-4 col-xl-3 mb-1">
-        <div class="product-card shadow-sm">
+      const productCard = `<div class="col-12 col-sm-6 col-lg-4 col-xl-3 mb-1 ">
+        <div class="product-card shadow-sm border rounded p-2 d-flex flex-column">
           <img src="${product.image}" alt="${product.title}" class="product-image">
           <div class="product-info">
             <h2 class="product-title">${product.title}</h2>
-            <p class="product-description">${product.description}</p>
-            <div class="product-footer">
-              <p class="product-price">$${product.price}</p>
-              <button data-id="${product.id}" id="add-to-cart" type="button" class="btn btn-primary">Add to Cart</button>
+            <p class="product-description text-muted small mb-0">${product.description}</p>
             </div>
+              <p class="product-price mb-2 pt-2">$${product.price}</p>
+              <button data-id="${product.id}" id="add-to-cart" type="button" class="btn btn-primary">Add to Cart</button>
+            
           </div>
         </div>`;
       updateCartIcon(userAddedProducts);

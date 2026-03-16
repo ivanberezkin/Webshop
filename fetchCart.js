@@ -15,14 +15,14 @@ function getCartProducts() {
   userAddedProducts.forEach((product) => {
     const productCard = `
     <div class="col-12 mb-2">
-      <div class="product-card shadow-sm border rounder p-2">
+      <div class="cart-product-card shadow-sm border rounder p-2">
         <div class="row align-items-center g-2">
           <div class="col-3 col-md-2 text-center flex-shrink-0 cart-product-image" >
             <img src="${product.image}" alt="${product.title}" class="img-fluid rounded" >
           </div>
           <div class="col-5 col-md-8">
             <h2 class="product-title">${product.title}</h2>
-            <p class="product-description text-muted mb-0 d-none d-md-block">${product.description}</p>
+            <p class="cart-product-description text-muted mb-0 d-none d-md-block">${product.description}</p>
             <p class="product-price ms-left-auto">Piece: $${product.price}</p>
  
           <div class="col-md-2">

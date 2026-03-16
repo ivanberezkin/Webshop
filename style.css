@@ -1,7 +1,18 @@
 .product-image {
-  height: 35%;
+  height: 160px;
   object-fit: contain;
   margin-bottom: 10px;
+}
+
+#products-container {
+  --bs-gutter-x: 1.5rem;
+  --bs-gutter-y: 1.5rem;
+}
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+  height: 500px;
 }
 
 .cart-product-image {
@@ -23,14 +34,23 @@
   overflow: hidden;
 }
 
+.cart-product-description {
+  font-size: 0.75rem;
+  line-height: 1.2;
+  height: 50px;
+  overflow-y: auto;
+}
+
 .product-description {
   font-size: 0.75rem;
   line-height: 1.2;
+  height: 150px;
+  overflow-y: auto;
 }
 
 .product-price {
   margin-bottom: 8px;
-  font-size: 0.9rem;
+  font-size: 1.2rem;
   font-weight: bold;
 }
 
