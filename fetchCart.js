@@ -3,6 +3,11 @@ import { updateCartIcon } from "./utils.js";
 const userAddedProducts = JSON.parse(localStorage.getItem("cart")) || [];
 const cartContainer = document.querySelector("#cart-container");
 
+const checkOutButton = document.querySelector("#checkout-button");
+checkOutButton.addEventListener("click", () => {
+  window.location.href = "checkout.html";
+});
+
 function getCartProducts() {
   if (userAddedProducts.length === 0) {
     cartContainer.innerHTML = `<div class="col-12">
@@ -44,4 +49,35 @@ function getCartProducts() {
   updateCartIcon(userAddedProducts);
 }
 
+let totalItemsNumber = document.querySelector("#cart-item-count");
+let totalPricesNumber = document.querySelector("#cart-total-price");
+
+function updateCartSummary(){
+
+  totalItemsNumber.textContent = getCartTotalItems();
+  totalPricesNumber.textContent = `$${getCartTotalPrice().toFixed(2)}`;
+
+}
+
+function getCartTotalPrice(){
+ let sumOfAllProductsTotalPrice = 0;
+
+  userAddedProducts.forEach((product) => {
+    const totalPrice = product.price * product.quantity;
+    sumOfAllProductsTotalPrice += totalPrice;
+  });
+
+  return sumOfAllProductsTotalPrice;
+}
+
+function getCartTotalItems(){
+  let sumOfAllItemsInCart = 0;
+
+  userAddedProducts.forEach((product) => {
+    sumOfAllItemsInCart += product.quantity;
+  });
+  return sumOfAllItemsInCart;
+}
+
 getCartProducts();
+updateCartSummary();
