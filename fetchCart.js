@@ -5,7 +5,11 @@ const cartContainer = document.querySelector("#cart-container");
 
 const checkOutButton = document.querySelector("#checkout-button");
 checkOutButton.addEventListener("click", () => {
+  if(userAddedProducts.length > 0) {
   window.location.href = "checkout.html";
+  } else{
+    alert("Your cart is empty. Please add some products before proceeding to checkout.");
+  }
 });
 
 function getCartProducts() {
