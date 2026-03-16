@@ -1,3 +1,5 @@
+import { updateCartIcon } from "./utils.js";
+
 const form = document.querySelector("#checkout-form");
 const userAddedProducts = JSON.parse(localStorage.getItem("cart")) || [];
 const inputs = form.querySelectorAll("input");
@@ -14,3 +16,4 @@ inputs.forEach((input) => {
   });
 });
 
+updateCartIcon(userAddedProducts);

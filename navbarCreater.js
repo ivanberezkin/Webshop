@@ -1,6 +1,6 @@
 const navbarCreaterHTML = `  <nav class="navbar navbar-expand-md navbar-dark bg-dark">
       <div class="container">
-        <a href="#" class="navbar-brand">Webshop</a>
+        <a href="main.html" class="navbar-brand">Webshop</a>
         <button
           class="navbar-toggler"
           data-bs-toggle="collapse"
@@ -14,9 +14,6 @@ const navbarCreaterHTML = `  <nav class="navbar navbar-expand-md navbar-dark bg-
           <ul class="navbar-nav">
             <li class="nav-item">
               <a href="main.html" class="nav-link">Home</a>
-            </li>
-            <li class="nav-item">
-              <a href="contact.html" class="nav-link">Contact</a>
             </li>
           </ul>
 
